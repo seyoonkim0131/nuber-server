@@ -11,7 +11,6 @@ const allResolvers: any = fileLoader(
     path.join(__dirname, "./api/**/*.resolvers.*")
 )
 
-
 const mergedTypes: any = mergeTypes(allTypes, {all: true})
 const mergedResolvers: any = mergeResolvers(allResolvers)
 
