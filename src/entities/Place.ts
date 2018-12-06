@@ -1,6 +1,5 @@
 import { Column, Entity, BaseEntity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm'
 
-
 @Entity()
 class Place extends BaseEntity {
     @PrimaryGeneratedColumn() id: number
@@ -19,10 +18,6 @@ class Place extends BaseEntity {
 
     @Column({type: 'boolean', default: false})
     isFav: boolean
-
-
-
-
 
     @CreateDateColumn() createdAt: string
     @UpdateDateColumn() updatedAt: string
