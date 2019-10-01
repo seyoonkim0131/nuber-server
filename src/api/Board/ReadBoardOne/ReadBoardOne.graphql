@@ -1,0 +1,9 @@
+type ReadBoardOneResponse {
+    ok: Boolean!
+    error: String
+    board: Board
+}
+
+type Query {
+    ReadBoardOne: ReadBoardOneResponse!
+}

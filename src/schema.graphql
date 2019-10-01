@@ -1,3 +1,26 @@
+type ReadBoardOneResponse {
+  ok: Boolean!
+  error: String
+  board: Board
+}
+
+type Query {
+  ReadBoardOne: ReadBoardOneResponse!
+  sayBye: String!
+  sayHello(name: String!): SayHelloResponse!
+}
+
+type Board {
+  no: Int!
+  title: String!
+  body: String
+  file: String
+  create: Int!
+  createDate: String!
+  update: Int!
+  updateDate: String!
+}
+
 type Chat {
   id: Int!
   messages: [Message]
@@ -13,11 +36,6 @@ type Message {
   user: User!
   cratedAt: String!
   updatedAt: String
-}
-
-type Query {
-  sayBye: String!
-  sayHello(name: String!): SayHelloResponse!
 }
 
 type SayHelloResponse {
@@ -62,48 +80,21 @@ type CompletePhoneVerificationResponse {
 
 type Mutation {
   CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
-  EmailSignIn(email: String!, password: String): EmailSignInResponse!
-  FacebookConnect(firstName: String!, lastName: String, email: String, fbId: String!): FacebookConnectResponse!
+  SignIn(id: String!, password: String!): SignInResponse!
   StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
 }
 
-type EmailSignInResponse {
-  ok: Boolean!
-  error: String
-  token: String
-}
-
-type FacebookConnectResponse {
-  ok: Boolean!
-  error: String
-  token: String
-}
-
 type User {
-  id: Int!
-  email: String
-  verifiedEmail: Boolean!
-  firstName: String!
-  lastName: String!
-  age: Int
+  no: Int!
+  id: String!
+  name: String!
   password: String
-  phoneNumber: String
-  verifiedPhoneNumber: Boolean!
-  profilePhoto: String
-  fullName: String
-  isDriving: Boolean!
-  isRiding: Boolean!
-  isTaken: Boolean!
-  lastLng: Float
-  lastLat: Float
-  lastOrientation: Float
-  fbId: String
-  chat: Chat
-  messages: [Message]
-  rideAsPassenger: [Ride]
-  rideAsDriver: [Ride]
-  createdAt: String!
-  updatedAt: String
+}
+
+type SignInResponse {
+  ok: Boolean!
+  error: String
+  token: String
 }
 
 type StartPhoneVerificationResponse {
